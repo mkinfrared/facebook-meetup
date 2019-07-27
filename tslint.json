@@ -40,10 +40,11 @@
     ],
     "no-internal-module": true,
     "no-trailing-whitespace": false,
-    "no-null-keyword": true,
+    "no-null-keyword": false,
     "prefer-const": true,
     "jsdoc-format": true,
-    "prettier": true
+    "prettier": true,
+    "object-literal-sort-keys": false
   },
   "class-name": true,
   "comment-format": [true, "check-space"],
@@ -80,7 +81,6 @@
   ],
   "no-internal-module": true,
   "no-trailing-whitespace": true,
-  "no-null-keyword": true,
   "prefer-const": true,
   "jsdoc-format": true,
   "ordered-imports": [
@@ -99,7 +99,6 @@
   "only-arrow-functions": true,
   "prefer-object-spread": true,
   "eofline": true,
-  "object-literal-sort-keys": true,
   "file-name-casing": [true, "camel-case"],
   "newline-before-return": true,
   "no-consecutive-blank-lines": true,

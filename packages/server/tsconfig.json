@@ -8,7 +8,7 @@
     "paths": {
       "@controllers/*": ["controllers/*"],
       "@db/*": ["db/*"],
-      "@middlewares/*": ["middlewares/*"],
+      "@middleware/*": ["middleware/*"],
       "@public/*": ["public/*"],
       "@routes/*": ["routes/*"],
       "@util/*": ["util/*"]
