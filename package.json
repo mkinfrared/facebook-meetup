@@ -1,0 +1,41 @@
+{
+  "name": "facebook-meetup",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "version": "0.0.1",
+  "main": "packages/server/build/server.js",
+  "author": "Mikhail Korotkov",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "start": "lerna run start",
+    "start:server": "cd packages/server && yarn start",
+    "start:web": "cd packages/web && yarn start",
+    "test": "lerna run test",
+    "test:web": "cd packages/web && yarn test",
+    "test:server": "cd packages/server && yarn test",
+    "lint": "yarn lint:scss:fix && yarn lint:ts:fix",
+    "lint:scss": "stylelint packages/**/src/**/*.scss --syntax scss",
+    "lint:scss:fix": "stylelint packages/**/src/**/*.scss --syntax scss --fix",
+    "lint:ts": "tslint packages/**/src/**/*.ts?(x)",
+    "lint:ts:fix": "tslint --fix packages/**/src/**/*.ts?(x)",
+    "prettier": "prettier --write packages/**/src/**/*.ts?(x)",
+    "precommit": "yarn prettier && yarn lint"
+  },
+  "devDependencies": {
+    "husky": "^3.0.1",
+    "lerna": "^3.16.4",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.1.0",
+    "stylelint-order": "^3.0.1",
+    "stylelint-prettier": "^1.1.1",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
+  }
+}
