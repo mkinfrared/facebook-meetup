@@ -3,13 +3,15 @@ import { connect } from "react-redux";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 
 import Auth from "components/Auth";
-import Form from "components/Form";
 import Navigation from "components/Navigation";
 import Table from "components/Table";
+import Form from "container/Form";
 import { compose } from "redux";
 import { RoutesProps } from "routes/Routes.type";
 import { getUserSelector } from "store/reducers/user/selectors";
 import { AppState } from "store/store.type";
+
+import css from "routes/Routes.module.scss";
 
 class Routes extends React.Component<RoutesProps> {
   renderUnauthorizedRoutes = () => {
@@ -25,11 +27,13 @@ class Routes extends React.Component<RoutesProps> {
     return (
       <>
         <Navigation />
-        <Switch>
-          <Route path="/" exact component={Form} />
-          <Route path="/table" component={Table} />
-          <Redirect to="/" />
-        </Switch>
+        <div className={css.container}>
+          <Switch>
+            <Route path="/" exact component={Form} />
+            <Route path="/table" component={Table} />
+            <Redirect to="/" />
+          </Switch>
+        </div>
       </>
     );
   };
