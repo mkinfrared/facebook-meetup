@@ -1,11 +1,16 @@
 import { all, call, put, select, takeEvery } from "redux-saga/effects";
 
-import { addAnswer, updateAnswer } from "store/reducers/answers/actions";
+import {
+  addAnswer,
+  getAnswersFail,
+  getAnswersSuccess,
+  updateAnswer
+} from "store/reducers/answers/actions";
 import { getAnswersSelector } from "store/reducers/answers/selectors";
 import { Answers, AnswersActionTypes } from "store/reducers/answers/types";
 
 export default function* answersSaga() {
-  yield all([call(watchAddAnswerSaga)]);
+  yield all([call(watchAddAnswerSaga), call(watchGetAnswersSaga)]);
 }
 
 function* addAnswerSaga(action: ReturnType<typeof addAnswer>) {
@@ -37,4 +42,21 @@ function* addAnswerSaga(action: ReturnType<typeof addAnswer>) {
 
 function* watchAddAnswerSaga() {
   yield takeEvery(AnswersActionTypes.ADD_ANSWER, addAnswerSaga);
+}
+
+function* getAnswersSaga() {
+  try {
+    const storage = localStorage.getItem("answers");
+    if (storage) {
+      const answers: Answers = JSON.parse(storage);
+
+      yield put(getAnswersSuccess(answers));
+    }
+  } catch (e) {
+    yield put(getAnswersFail());
+  }
+}
+
+function* watchGetAnswersSaga() {
+  yield takeEvery(AnswersActionTypes.GET_ANSWERS, getAnswersSaga);
 }
