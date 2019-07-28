@@ -12,7 +12,7 @@ class Form extends React.Component<FormProps, FormState> {
   state = {
     displayName: this.props.user.displayName || "",
     friendsQuantity: "1",
-    decision: "",
+    decision: null,
     modalOpen: false
   };
 
@@ -51,13 +51,13 @@ class Form extends React.Component<FormProps, FormState> {
   handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
 
-    this.setState({ decision: value });
+    this.setState({ decision: !!value });
   };
 
   handleClick = () => {
     const { decision, friendsQuantity, displayName } = this.state;
 
-    if (!decision) {
+    if (decision === null) {
       this.openModal();
       return;
     }
@@ -109,13 +109,10 @@ class Form extends React.Component<FormProps, FormState> {
             <option value="na" disabled>
               Need to Decide
             </option>
-            <option selected={decision === "I will go"} value="I will go">
+            <option selected={!!decision} value="true">
               I will go
             </option>
-            <option
-              selected={decision === "I will not go"}
-              value="I will not go"
-            >
+            <option selected={!decision && decision !== null} value="">
               I will not go
             </option>
           </select>

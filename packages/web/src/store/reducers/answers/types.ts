@@ -3,7 +3,7 @@ import { User } from "store/reducers/user/types";
 export type Answers = Answer[];
 
 export interface Answer extends Partial<User> {
-  decision: string;
+  decision: boolean | null;
   friendsQuantity: string;
 }
 
