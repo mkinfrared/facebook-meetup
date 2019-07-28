@@ -4,8 +4,8 @@ import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 
 import Auth from "components/Auth";
 import Navigation from "components/Navigation";
-import Table from "components/Table";
 import Form from "container/Form";
+import Table from "container/Table";
 import { compose } from "redux";
 import { RoutesProps } from "routes/Routes.type";
 import { getUserSelector } from "store/reducers/user/selectors";

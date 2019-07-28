@@ -11,6 +11,6 @@ export interface FormProps {
 
 export interface FormState extends User {
   friendsQuantity: string;
-  decision: string;
+  decision: boolean | null;
   modalOpen: boolean;
 }
