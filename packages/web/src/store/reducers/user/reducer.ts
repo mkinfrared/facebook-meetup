@@ -1,11 +1,14 @@
 import { Reducer } from "redux";
+import { User, UserActionTypes } from "store/reducers/user/types";
 
 const initialState = {};
 
-const reducer: Reducer = (state = initialState, action) => {
-  const { type } = action;
+const reducer: Reducer<User> = (state = initialState, action) => {
+  const { type, payload } = action;
 
   switch (type) {
+    case UserActionTypes.FETCH_USER_SUCCESS:
+      return { ...state, ...payload };
     default:
       return state;
   }

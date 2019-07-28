@@ -19,6 +19,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.0.5",
     "reselect": "^4.0.0",
+    "typesafe-actions": "^4.4.2",
     "typescript": "3.5.3",
     "uuid": "^3.3.2"
   },
