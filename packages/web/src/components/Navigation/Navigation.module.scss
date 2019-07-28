@@ -1,4 +1,5 @@
 .navigation {
+
   a {
     color: #000000;
     text-decoration: none;
@@ -9,8 +10,8 @@
     }
 
     &.active {
-      color: #FFFFFF;
       background-color: grey;
+      color: #FFFFFF;
     }
   }
 }
