@@ -1,9 +1,27 @@
 import React from "react";
 
 import css from "App.module.scss";
+import api from "utils/api";
 import logo from "./logo.svg";
 
 class App extends React.Component {
+  componentDidMount() {
+    this.fetchUser();
+  }
+
+  fetchUser = async () => {
+    try {
+      const response = await api.get("/auth/user");
+      console.log(response);
+    } catch (e) {
+      if (e.response.status === 401) {
+        const url = process.env.REACT_APP_BASE_URL + "/auth/facebook";
+        console.log(url);
+        window.open(url, "_self");
+      }
+    }
+  };
+
   render() {
     return (
       <div className={css.App}>
