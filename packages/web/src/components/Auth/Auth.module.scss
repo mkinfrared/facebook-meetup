@@ -1,0 +1,15 @@
+.auth {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+
+  .logo {
+    width: 50%;
+
+    img{
+      width: 100%;
+    }
+  }
+}
