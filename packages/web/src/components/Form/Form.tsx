@@ -16,6 +16,21 @@ class Form extends React.Component<FormProps, FormState> {
     modalOpen: false
   };
 
+  componentDidMount() {
+    const { answers } = this.props;
+
+    const answer = answers.find(
+      elem => elem.displayName === this.state.displayName
+    );
+
+    if (answer) {
+      this.setState({
+        friendsQuantity: answer.friendsQuantity,
+        decision: answer.decision
+      });
+    }
+  }
+
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     type allowedKey = "displayName";
     const { name, value } = e.target;
@@ -39,7 +54,7 @@ class Form extends React.Component<FormProps, FormState> {
     this.setState({ decision: value });
   };
 
-  handleClick = (e: React.SyntheticEvent<HTMLButtonElement>) => {
+  handleClick = () => {
     const { decision, friendsQuantity, displayName } = this.state;
 
     if (!decision) {
@@ -66,7 +81,7 @@ class Form extends React.Component<FormProps, FormState> {
   };
 
   render() {
-    const { friendsQuantity, displayName, modalOpen } = this.state;
+    const { friendsQuantity, displayName, modalOpen, decision } = this.state;
 
     return (
       <div className={css.form}>
@@ -94,8 +109,15 @@ class Form extends React.Component<FormProps, FormState> {
             <option value="na" disabled>
               Need to Decide
             </option>
-            <option value="I will go">I will go</option>
-            <option value="I will not go">I will not go</option>
+            <option selected={decision === "I will go"} value="I will go">
+              I will go
+            </option>
+            <option
+              selected={decision === "I will not go"}
+              value="I will not go"
+            >
+              I will not go
+            </option>
           </select>
         </div>
         <ButtonBase buttonText="Send" onClick={this.handleClick} />

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import Routes from "routes";
+import { getAnswers } from "store/reducers/answers/actions";
 import { fetchUser } from "store/reducers/user/actions";
 
 import css from "App.module.scss";
@@ -11,6 +12,7 @@ import css from "App.module.scss";
 class App extends React.Component<AppProps> {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.getAnswers();
   }
 
   render() {
@@ -26,7 +28,8 @@ class App extends React.Component<AppProps> {
 }
 
 const mapDispatchToProps = {
-  fetchUser
+  fetchUser,
+  getAnswers
 };
 
 export default connect(

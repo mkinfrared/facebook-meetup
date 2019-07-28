@@ -14,3 +14,10 @@ export const updateAnswer = (answers: Answers) =>
 
 export const deleteAnswer = (answer: Answer) =>
   action(AnswersActionTypes.DELETE_ANSWER, answer);
+
+export const getAnswers = () => action(AnswersActionTypes.GET_ANSWERS);
+
+export const getAnswersSuccess = (answers: Answers) =>
+  action(AnswersActionTypes.GET_ANSWERS_SUCCESS, answers);
+
+export const getAnswersFail = () => action(AnswersActionTypes.GET_ANSWERS_FAIL);

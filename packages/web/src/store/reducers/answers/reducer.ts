@@ -10,6 +10,8 @@ const reducer: Reducer = (state = initialState, action) => {
   switch (type) {
     case AnswersActionTypes.UPDATE_ANSWER:
       return [...payload];
+    case AnswersActionTypes.GET_ANSWERS_SUCCESS:
+      return [...payload];
     default:
       return state;
   }
