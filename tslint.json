@@ -43,6 +43,7 @@
     "no-null-keyword": false,
     "prefer-const": true,
     "jsdoc-format": true,
+    "interface-name": false,
     "prettier": true,
     "object-literal-sort-keys": false
   },

@@ -8,3 +8,4 @@ export const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET as string;
 export const FACEBOOK_CALLBACK_URL = process.env
   .FACEBOOK_CALLBACK_URL as string;
 export const SESSION_SECRET = process.env.SESSION_SECRET as string;
+export const FRONTEND_URL = process.env.FRONTEND_URL as string;

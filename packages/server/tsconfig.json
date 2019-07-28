@@ -6,6 +6,7 @@
     "outDir": "./build",
     "baseUrl": "src",
     "paths": {
+      "@config/*": ["config/*"],
       "@controllers/*": ["controllers/*"],
       "@db/*": ["db/*"],
       "@middleware/*": ["middleware/*"],
