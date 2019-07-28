@@ -1,0 +1,44 @@
+@import "../../styles/variables";
+
+.form {
+  width: 300px;
+  border: 1px solid $main-color;
+  text-align: right;
+
+  .container {
+    padding: 30px;
+    text-align: left;
+    width: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    input {
+      width: 100%;
+    }
+
+    input[type="number"] {
+      width: 40%;
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .textContainer{
+    background-color: #FFFFFF;
+    padding: 50px;
+    outline: none;
+  }
+}

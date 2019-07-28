@@ -17,6 +17,7 @@ class App extends React.Component<AppProps> {
     return (
       <BrowserRouter>
         <div className={css.App}>
+          <div className={css.content}></div>
           <Routes />
         </div>
       </BrowserRouter>

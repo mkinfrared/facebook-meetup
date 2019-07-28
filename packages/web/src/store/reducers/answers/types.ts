@@ -1,0 +1,14 @@
+import { User } from "store/reducers/user/types";
+
+export type Answers = Answer[];
+
+export interface Answer extends Partial<User> {
+  decision: string;
+  friendsQuantity: string;
+}
+
+export enum AnswersActionTypes {
+  ADD_ANSWER = "@@answers/ADD_ANSWER",
+  UPDATE_ANSWER = "@@answers/UPDATE_ANSWER",
+  DELETE_ANSWER = "@@answers/DELETE_ANSWER"
+}
