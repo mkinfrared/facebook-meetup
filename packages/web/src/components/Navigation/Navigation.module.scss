@@ -1,0 +1,16 @@
+.navigation {
+  a {
+    color: #000000;
+    text-decoration: none;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+
+    }
+
+    &.active {
+      color: #FFFFFF;
+      background-color: grey;
+    }
+  }
+}
