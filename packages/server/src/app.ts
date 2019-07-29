@@ -6,7 +6,6 @@ import session from "express-session";
 import passport from "passport";
 
 import "@config/passportSetup";
-// import errorMiddleware from "@middleware/errorMiddleware";
 import routes from "@routes/index";
 
 import { FRONTEND_URL, SESSION_SECRET } from "@util/secrets";
@@ -19,7 +18,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      sameSite: false, // i think this is default to false
+      sameSite: false,
       maxAge: 60 * 60 * 1000
     }
   })
@@ -36,6 +35,5 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
-// app.use(errorMiddleware);
 
 export default app;

@@ -11,7 +11,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "start": "lerna run start",
+    "start": "concurrently \"yarn start:server\" \"yarn start:web\"",
     "start:server": "cd packages/server && yarn start",
     "start:web": "cd packages/web && yarn start",
     "test": "lerna run test",
@@ -26,6 +26,7 @@
     "precommit": "yarn prettier && yarn lint"
   },
   "devDependencies": {
+    "concurrently": "^4.1.1",
     "husky": "^3.0.1",
     "lerna": "^3.16.4",
     "lint-staged": "^9.2.1",
