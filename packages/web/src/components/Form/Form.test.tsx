@@ -1,15 +1,21 @@
-import * as React from "react";
 import { mount, shallow } from "enzyme";
+import * as React from "react";
 
-import { Form } from "./Form";
 import { Answers } from "store/reducers/answers/types";
+import { Form } from "./Form";
 
 describe("Form", () => {
-  it("should be defined", () => {
-    const user = {};
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
+  let user = {};
+  let answers: Answers = [];
+  let addAnswers = jest.fn();
 
+  beforeEach(() => {
+    user = {};
+    answers = [];
+    addAnswers = jest.fn();
+  });
+
+  it("should be defined", () => {
     const wrapper = shallow(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     ).instance();
@@ -18,10 +24,6 @@ describe("Form", () => {
   });
 
   it("should match the snapshot", () => {
-    const user = {};
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = shallow(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     ).instance();
@@ -40,7 +42,6 @@ describe("Form", () => {
         photos: [{ value: "url" }]
       }
     ];
-    const addAnswers = jest.fn();
 
     const wrapper = shallow(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
@@ -52,8 +53,6 @@ describe("Form", () => {
 
   it("should change the displayName on state to 'marklar'", () => {
     const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
 
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
@@ -71,10 +70,6 @@ describe("Form", () => {
   });
 
   it("should change the friendsQuantity '42'", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
@@ -91,10 +86,6 @@ describe("Form", () => {
   });
 
   it("should not change the friendsQuantity on state", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
@@ -115,10 +106,6 @@ describe("Form", () => {
   });
 
   it("should change the decision on state to true", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
@@ -135,10 +122,6 @@ describe("Form", () => {
   });
 
   it("should change the decision on state to false", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
@@ -155,10 +138,6 @@ describe("Form", () => {
   });
 
   it("should change the modalOpen on state to true when decision is null", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
@@ -173,10 +152,6 @@ describe("Form", () => {
   });
 
   it("should call addAnswers function from the props when decision is not null", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
@@ -196,10 +171,6 @@ describe("Form", () => {
   });
 
   it("should set modalOpen on state to false", () => {
-    const user = { displayName: "" };
-    const answers: Answers = [];
-    const addAnswers = jest.fn();
-
     const wrapper = mount(
       <Form user={user} answers={answers} addAnswer={addAnswers} />
     );
