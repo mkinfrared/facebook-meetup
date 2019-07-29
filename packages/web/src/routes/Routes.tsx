@@ -13,7 +13,7 @@ import { AppState } from "store/store.type";
 
 import css from "routes/Routes.module.scss";
 
-class Routes extends React.Component<RoutesProps> {
+export class Routes extends React.Component<RoutesProps> {
   renderUnauthorizedRoutes = () => {
     return (
       <>
