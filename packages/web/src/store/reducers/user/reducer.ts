@@ -1,7 +1,7 @@
 import { Reducer } from "redux";
 import { User, UserActionTypes } from "store/reducers/user/types";
 
-const initialState = {};
+export const initialState = {};
 
 const reducer: Reducer<User> = (state = initialState, action) => {
   const { type, payload } = action;
