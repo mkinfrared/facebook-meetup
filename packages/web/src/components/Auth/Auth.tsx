@@ -3,7 +3,7 @@ import * as React from "react";
 import css from "components/Auth/Auth.module.scss";
 import facebook from "components/Auth/Facebook.svg";
 
-const Auth: React.FC = () => {
+export const Auth: React.FC = () => {
   const url = process.env.REACT_APP_BASE_URL;
 
   return (

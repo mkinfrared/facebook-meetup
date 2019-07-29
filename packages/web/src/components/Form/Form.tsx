@@ -8,7 +8,7 @@ import { FormProps, FormState } from "components/Form/Form.type";
 import css from "components/Form/Form.module.scss";
 import { Answer } from "store/reducers/answers/types";
 
-class Form extends React.Component<FormProps, FormState> {
+export class Form extends React.Component<FormProps, FormState> {
   state = {
     displayName: this.props.user.displayName || "",
     friendsQuantity: "1",
@@ -32,10 +32,9 @@ class Form extends React.Component<FormProps, FormState> {
   }
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    type allowedKey = "displayName";
-    const { name, value } = e.target;
+    const { value } = e.target;
 
-    this.setState({ [name]: value } as Pick<FormState, allowedKey>);
+    this.setState({ displayName: value });
   };
 
   handleFriendsQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import css from "components/Navigation/Navigation.module.scss";
 
-const Navigation: React.FC = () => (
+export const Navigation: React.FC = () => (
   <div className={css.navigation}>
     <NavLink to="/" activeClassName={css.active} exact>
       My Answer

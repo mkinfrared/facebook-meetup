@@ -26,8 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "cross-env CI=true react-scripts test --collectCoverage",
+    "eject": "react-scripts eject",
+    "coverage": "open-cli ./coverage/lcov-report/index.html"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,11 +47,37 @@
   },
   "proxy": "http://localhost:4747",
   "devDependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/react-redux": "^7.1.1",
     "@types/react-router": "^5.0.3",
     "@types/react-router-dom": "^4.3.4",
     "@types/redux-devtools-extension": "^2.13.2",
+    "@types/redux-saga-tester": "^1.0.1",
     "@types/uuid": "^3.4.5",
-    "redux-devtools-extension": "^2.13.8"
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest-enzyme": "^7.0.2",
+    "open-cli": "^5.0.0",
+    "react-test-renderer": "^16.8.6",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-saga-tester": "^1.0.510"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
   }
 }
