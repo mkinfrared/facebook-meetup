@@ -10,7 +10,7 @@ import {
   TableRowState
 } from "components/TableRow/TableRow.type";
 
-class TableRow extends React.Component<TableRowProps, TableRowState> {
+export class TableRow extends React.Component<TableRowProps, TableRowState> {
   state = {
     modalOpen: false
   };
