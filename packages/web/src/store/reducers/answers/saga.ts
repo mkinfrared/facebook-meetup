@@ -2,6 +2,7 @@ import { all, call, put, select, takeEvery } from "redux-saga/effects";
 
 import {
   addAnswer,
+  deleteAnswer,
   getAnswersFail,
   getAnswersSuccess,
   updateAnswer
@@ -10,7 +11,11 @@ import { getAnswersSelector } from "store/reducers/answers/selectors";
 import { Answers, AnswersActionTypes } from "store/reducers/answers/types";
 
 export default function* answersSaga() {
-  yield all([call(watchAddAnswerSaga), call(watchGetAnswersSaga)]);
+  yield all([
+    call(watchAddAnswerSaga),
+    call(watchGetAnswersSaga),
+    call(watchDeleteAnswerSaga)
+  ]);
 }
 
 function* addAnswerSaga(action: ReturnType<typeof addAnswer>) {
@@ -59,4 +64,18 @@ function* getAnswersSaga() {
 
 function* watchGetAnswersSaga() {
   yield takeEvery(AnswersActionTypes.GET_ANSWERS, getAnswersSaga);
+}
+
+function* deleteAnswerSaga(action: ReturnType<typeof deleteAnswer>) {
+  const { payload } = action;
+
+  const answers: Answers = yield select(getAnswersSelector);
+
+  const newAnswers = answers.filter(answer => answer.displayName !== payload);
+
+  yield put(updateAnswer(newAnswers));
+}
+
+function* watchDeleteAnswerSaga() {
+  yield takeEvery(AnswersActionTypes.DELETE_ANSWER, deleteAnswerSaga);
 }

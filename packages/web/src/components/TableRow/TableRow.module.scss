@@ -4,11 +4,43 @@
   justify-content: space-between;
   padding: 20px;
 
-  &.active{
+  &.active {
     background-color: pink;
+    cursor: pointer;
   }
 
   img {
     height: 50px;
+  }
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:first-of-type {
+      text-align: left;
+      width: 130px;
+    }
+
+    &:last-of-type {
+      width: 35px;
+    }
+  }
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .textContainer {
+    background-color: #ffffff;
+    padding: 50px;
+
+    .buttonGroup {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
