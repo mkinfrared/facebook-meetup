@@ -40,10 +40,6 @@ describe("Routes", () => {
     expect(wrapper.instance()).toBeDefined();
   });
 
-  it("should match the snapshot", () => {
-    expect(wrapper.instance()).toMatchSnapshot();
-  });
-
   it("should render one <Route/> when user is empty", () => {
     const user = {};
 
