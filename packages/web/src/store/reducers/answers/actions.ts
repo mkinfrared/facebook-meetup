@@ -12,8 +12,8 @@ export const addAnswer = (answer: Answer) =>
 export const updateAnswer = (answers: Answers) =>
   action(AnswersActionTypes.UPDATE_ANSWER, answers);
 
-export const deleteAnswer = (answer: Answer) =>
-  action(AnswersActionTypes.DELETE_ANSWER, answer);
+export const deleteAnswer = (name: string) =>
+  action(AnswersActionTypes.DELETE_ANSWER, name);
 
 export const getAnswers = () => action(AnswersActionTypes.GET_ANSWERS);
 

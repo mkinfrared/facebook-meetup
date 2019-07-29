@@ -50,8 +50,17 @@ class Form extends React.Component<FormProps, FormState> {
 
   handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
+    let newValue: boolean = true;
 
-    this.setState({ decision: !!value });
+    if (value === "true") {
+      newValue = true;
+    }
+
+    if (value === "false") {
+      newValue = false;
+    }
+
+    this.setState({ decision: newValue });
   };
 
   handleClick = () => {
@@ -102,19 +111,15 @@ class Form extends React.Component<FormProps, FormState> {
             onChange={this.handleFriendsQuantityChange}
           />
           <select
-            defaultValue="na"
             name="decision"
+            value={`${decision}`}
             onChange={this.handleSelectChange}
           >
-            <option value="na" disabled>
+            <option value="null" disabled>
               Need to Decide
             </option>
-            <option selected={!!decision} value="true">
-              I will go
-            </option>
-            <option selected={!decision && decision !== null} value="">
-              I will not go
-            </option>
+            <option value="true">I will go</option>
+            <option value="false">I will not go</option>
           </select>
         </div>
         <ButtonBase buttonText="Send" onClick={this.handleClick} />

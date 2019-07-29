@@ -18,8 +18,6 @@ router.use("/auth/facebook/callback", (req, res, next) => {
 });
 
 router.get("/auth/user", (req, res) => {
-  console.log("getting user");
-  console.log("REq USER", req.user);
   if (req.user) {
     res.status(200).send(req.user);
     return;

@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import { TableProps } from "components/Table/Table.type";
+import { TableProps, TableState } from "components/Table/Table.type";
 import TableRow from "components/TableRow";
 
 import css from "components/Table/Table.module.scss";
 
-class Table extends React.Component<TableProps> {
-  state = {
+class Table extends React.Component<TableProps, TableState> {
+  state: TableState = {
     inputValue: ""
   };
 
@@ -30,6 +30,7 @@ class Table extends React.Component<TableProps> {
           name={answer.displayName!}
           quantity={answer.friendsQuantity}
           currentUserName={this.props.user.displayName!}
+          onClick={this.props.deleteAnswer}
         />
       ));
 

@@ -4,4 +4,9 @@ export interface TableRowProps {
   decision: boolean;
   quantity: string;
   currentUserName: string;
+  onClick: (name: string) => void;
+}
+
+export interface TableRowState {
+  modalOpen: boolean;
 }
