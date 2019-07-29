@@ -5,7 +5,7 @@ import TableRow from "components/TableRow";
 
 import css from "components/Table/Table.module.scss";
 
-class Table extends React.Component<TableProps, TableState> {
+export class Table extends React.Component<TableProps, TableState> {
   state: TableState = {
     inputValue: ""
   };

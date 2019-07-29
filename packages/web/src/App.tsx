@@ -9,7 +9,7 @@ import { fetchUser } from "store/reducers/user/actions";
 
 import css from "App.module.scss";
 
-class App extends React.Component<AppProps> {
+export class App extends React.Component<AppProps> {
   componentDidMount() {
     this.props.fetchUser();
     this.props.getAnswers();
@@ -19,7 +19,6 @@ class App extends React.Component<AppProps> {
     return (
       <BrowserRouter>
         <div className={css.App}>
-          <div className={css.content}></div>
           <Routes />
         </div>
       </BrowserRouter>

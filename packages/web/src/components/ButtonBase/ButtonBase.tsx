@@ -3,7 +3,7 @@ import * as React from "react";
 
 import css from "components/ButtonBase/ButtonBase.module.scss";
 
-const ButtonBase: React.FC<ButtonBaseProps> = ({ buttonText, onClick }) => {
+export const ButtonBase: React.FC<ButtonBaseProps> = ({ buttonText, onClick }) => {
   return (
     <div className={css.buttonBase}>
       <button onClick={onClick}>{buttonText}</button>
